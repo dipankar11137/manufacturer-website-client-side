@@ -3,6 +3,7 @@ import './App.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 import Navbar from './Pages/Share/Navbar';
+import NotFound from './Pages/Share/NotFound';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
   );
