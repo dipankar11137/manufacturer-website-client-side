@@ -5,7 +5,9 @@ const CameraTool = ({ product }) => {
     return (
         <div className=''>
             <div class="card w-96 glass p-2">
-                <img src={img} alt="" />
+                <div className='w-72'>
+                    <img src={img} alt="" />
+                </div>
                 <div class="card-body">
                     <h2 class="card-title text-2xl font-bold">{name}</h2>
                     <p>{description}</p>

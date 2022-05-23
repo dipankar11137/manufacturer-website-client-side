@@ -14,7 +14,7 @@ const CameraTools = () => {
     return (
         <div>
             <hr />
-            <h1 className='text-5xl text-center uppercase font-bold mt-5'>Products </h1>
+            <h1 className='text-5xl text-center uppercase font-bold mt-5 text-amber-600'>Camera Tools Products </h1>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-10'>
                 {
                     products.slice(0, 6).map(product => <CameraTool key={product._id} product={product}></CameraTool>)
