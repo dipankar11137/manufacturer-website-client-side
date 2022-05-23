@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Share/Footer';
 import Banner from './Banner';
 
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
                     <Banner />
                 </div>
             </div>
-
+            <Footer />
         </div >
     );
 };
