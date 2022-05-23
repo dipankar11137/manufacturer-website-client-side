@@ -3,17 +3,23 @@ import './App.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 import ShowAllCameraProducts from './Pages/Home/ShowAllCameraProducts';
+import ShowAllLaptopProducts from './Pages/Home/ShowAllLaptopProducts';
+import Blogs from './Pages/Share/Blogs';
 import Navbar from './Pages/Share/Navbar';
 import NotFound from './Pages/Share/NotFound';
 
 function App() {
   return (
     <div >
-      <Navbar></Navbar>
+      <div className='sticky top-0 z-50'>
+        <Navbar></Navbar>
+      </div>
 
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/showAllCameraTools' element={<ShowAllCameraProducts />}></Route>
+        <Route path='/showAllLaptopTools' element={<ShowAllLaptopProducts />}></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
