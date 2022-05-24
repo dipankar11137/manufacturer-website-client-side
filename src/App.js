@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Login from './Login/Login';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 import ShowAllCameraProducts from './Pages/Home/ShowAllCameraProducts';
@@ -23,6 +24,7 @@ function App() {
         <Route path='/showAllMobilePhone' element={<ShowAllMobilePhone />}></Route>
         <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

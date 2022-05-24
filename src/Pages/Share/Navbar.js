@@ -14,7 +14,7 @@ const Navbar = () => {
         <li className='text-xl font-bold' ><Link to="/">Add A Review</Link></li>
         <li className='text-xl font-bold' ><Link to="/">My Profile</Link></li>
         <li className='text-xl font-bold' ><Link to="/dashboard">Dashboard</Link></li>
-        <li className='text-xl font-bold' ><Link to="/dashboard">Login</Link></li>
+        <li className='text-xl font-bold' ><Link to="/login">Login</Link></li>
 
     </>
 
