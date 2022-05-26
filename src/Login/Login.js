@@ -1,19 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
+import auth from '../firebase.init';
+import Loading from '../Pages/Share/Loading';
 
 
 const Login = () => {
-
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    let signInError;
     const navigate = useNavigate();
     const location = useLocation();
 
+    let from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (user || gUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user, gUser, from, navigate])
+
+    if (loading || gLoading) {
+        return <Loading></Loading>
+    }
+
+    if (error || gError) {
+        signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
+    }
+
+
     const onSubmit = data => {
         console.log(data)
-
-
+        signInWithEmailAndPassword(data.email, data.password);
     };
 
     return (
@@ -72,7 +98,7 @@ const Login = () => {
                             </label>
                         </div>
 
-
+                        {signInError}
                         <input className='btn btn-primary w-full text-white' type="submit" value="Login" />
                     </form>
                     <p><small>New to Doctors Portal? <Link to='/signup' className='text-primary'>Create New Account</Link></small></p>
