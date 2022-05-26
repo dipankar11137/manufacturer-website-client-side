@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home';
 import ShowAllCameraProducts from './Pages/Home/ShowAllCameraProducts';
 import ShowAllLaptopProducts from './Pages/Home/ShowAllLaptopProducts';
 import ShowAllMobilePhone from './Pages/Home/ShowAllMobilePhone';
+import MyOrder from './Pages/MyOrder/MyOrder';
 import Blogs from './Pages/Share/Blogs';
 import Navbar from './Pages/Share/Navbar';
 import NotFound from './Pages/Share/NotFound';
@@ -24,6 +25,7 @@ function App() {
         <Route path='/showAllLaptopTools' element={<ShowAllLaptopProducts />}></Route>
         <Route path='/showAllMobilePhone' element={<ShowAllMobilePhone />}></Route>
         <Route path='/blogs' element={<Blogs />}></Route>
+        <Route path='/myOrder' element={<MyOrder />}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>

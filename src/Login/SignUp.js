@@ -1,13 +1,15 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
+import Loading from '../Pages/Share/Loading';
+
 
 
 
 const SignUp = () => {
-
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const [
@@ -17,10 +19,25 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    const onSubmit = data => {
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const navigate = useNavigate();
+
+    let signInError;
+
+    if (loading || gLoading || updating) {
+        return <Loading></Loading>
+    }
+
+    if (error || gError || updateError) {
+        signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
+    }
+
+    const onSubmit = async data => {
         console.log(data.email, data.password)
-        createUserWithEmailAndPassword(data.email, data.password);
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
         alert('Updated profile');
+        navigate('/myOrder');
 
     };
 
@@ -99,14 +116,13 @@ const SignUp = () => {
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
-
-
+                        {signInError}
                         <input className='btn btn-primary w-full text-white' type="submit" value="Sign Up" />
                     </form>
                     <p><small>Already Have an Account ?   <Link to='/login' className='text-primary'>Please Login</Link></small></p>
                     <div className="divider">OR</div>
                     <button
-
+                        onClick={() => signInWithGoogle()}
                         className="btn btn-outline font-black"
                     >Continue With Google</button>
                 </div>

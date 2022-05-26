@@ -10,7 +10,7 @@ const Navbar = () => {
         <li className='text-xl font-bold'><Link to="/">Home</Link></li>
         <li className='text-xl font-bold'><Link to="/">About</Link></li>
         <li className='text-xl font-bold'><Link to="/blogs">Blogs</Link></li>
-        <li className='text-xl font-bold' ><Link to="/">My Orders</Link></li>
+        <li className='text-xl font-bold' ><Link to="/myOrder">My Orders</Link></li>
         <li className='text-xl font-bold' ><Link to="/">Add A Review</Link></li>
         <li className='text-xl font-bold' ><Link to="/">My Profile</Link></li>
         <li className='text-xl font-bold' ><Link to="/dashboard">Dashboard</Link></li>
