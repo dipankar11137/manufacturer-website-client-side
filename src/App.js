@@ -4,8 +4,14 @@ import Login from './Login/Login';
 import RequireAuth from './Login/RequireAuth';
 import SignUp from './Login/SignUp';
 import AddAReview from './Pages/AddAReview/AddAReview';
+import AddNewProduct from './Pages/Dashboard/AddNewProduct';
+import AllUser from './Pages/Dashboard/AllUser';
 import Booking from './Pages/Dashboard/Booking';
+import Bookings from './Pages/Dashboard/Bookings';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import History from './Pages/Dashboard/History';
+import ManageProduct from './Pages/Dashboard/ManageProduct';
+import MyReview from './Pages/Dashboard/MyReview';
 import Home from './Pages/Home/Home';
 import ShowAllCameraProducts from './Pages/Home/ShowAllCameraProducts';
 import ShowAllLaptopProducts from './Pages/Home/ShowAllLaptopProducts';
@@ -47,6 +53,12 @@ function App() {
         }></Route>
 
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<Bookings />} />
+          <Route path='review' element={<MyReview />} />
+          <Route path='history' element={<History />} />
+          <Route path='users' element={<AllUser />} />
+          <Route path='addNewProduct' element={<AddNewProduct />} />
+          <Route path='manageProduct' element={<ManageProduct />} />
 
         </Route>
 
