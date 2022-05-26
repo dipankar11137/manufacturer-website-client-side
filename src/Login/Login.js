@@ -104,7 +104,7 @@ const Login = () => {
                     <p><small>New to Doctors Portal? <Link to='/signup' className='text-primary'>Create New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button
-
+                        onClick={() => signInWithGoogle()}
                         className="btn btn-outline font-black"
                     >Continue With Google</button>
                 </div>
