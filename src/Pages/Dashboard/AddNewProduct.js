@@ -5,12 +5,25 @@ const AddNewProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
+        const url = `http://localhost:5000/cameraProducts`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                reset();
+                console.log(result);
+            })
     }
 
     return (
         <div className=' '>
-            <h2>Please add a Product</h2>
-            <div className=' mt-5'>
+            <h2 className='mt-5 font-bold text-4xl'>Please add a Product</h2>
+            <div className='bg-red-200 p-5 rounded-2xl w-96 mt-5'>
                 <form className='' onSubmit={handleSubmit(onSubmit)}>
                     <label className="label">
                         <span className="label-text">Name</span>
