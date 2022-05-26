@@ -3,6 +3,7 @@ import './App.css';
 import Login from './Login/Login';
 import RequireAuth from './Login/RequireAuth';
 import SignUp from './Login/SignUp';
+import About from './Pages/About/About';
 import AddAReview from './Pages/AddAReview/AddAReview';
 import AddNewProduct from './Pages/Dashboard/AddNewProduct';
 import AllUser from './Pages/Dashboard/AllUser';
@@ -34,6 +35,7 @@ function App() {
         <Route path='/showAllCameraTools' element={<ShowAllCameraProducts />}></Route>
         <Route path='/showAllLaptopTools' element={<ShowAllLaptopProducts />}></Route>
         <Route path='/showAllMobilePhone' element={<ShowAllMobilePhone />}></Route>
+        <Route path='/about' element={<About />}></Route>
         <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/myOrder' element={<MyOrder />}></Route>
         <Route path='/addAReview' element={

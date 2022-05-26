@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Booking from '../Dashboard/Booking';
 
 const CameraTool = ({ product }) => {
     const { _id, name, img, description, minOrderQuantity, availableQuantity, price } = product;
     const navigate = useNavigate();
 
     const handleBooking = (id) => {
-        console.log(id);
+        // navigate('/booking');
+        navigate(<Booking>{id}</Booking>)
 
     }
     return (

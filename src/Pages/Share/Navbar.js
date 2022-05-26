@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const menuItems = <>
         {/* <li className='text-xl font-bold'><Link to="/">Home</Link></li> */}
-        <li className='font-bold'><Link to="/">About</Link></li>
+        <li className='font-bold'><Link to="/about">About</Link></li>
         <li className='font-bold'><Link to="/blogs">Blogs</Link></li>
         <li className='font-bold' ><Link to="/myOrder">My Orders</Link></li>
         <li className='font-bold' ><Link to="/addAReview">Add A Review</Link></li>

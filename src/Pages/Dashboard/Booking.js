@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Booking = () => {
+const Booking = ({ children }) => {
     return (
         <div>
-            <h1>Booking</h1>
+            <h1>Booking{children}</h1>
         </div>
     );
 };
