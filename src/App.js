@@ -3,12 +3,14 @@ import './App.css';
 import Login from './Login/Login';
 import RequireAuth from './Login/RequireAuth';
 import SignUp from './Login/SignUp';
+import AddAReview from './Pages/AddAReview/AddAReview';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 import ShowAllCameraProducts from './Pages/Home/ShowAllCameraProducts';
 import ShowAllLaptopProducts from './Pages/Home/ShowAllLaptopProducts';
 import ShowAllMobilePhone from './Pages/Home/ShowAllMobilePhone';
 import MyOrder from './Pages/MyOrder/MyOrder';
+import MyProfile from './Pages/MyProfile/MyProfile';
 import Blogs from './Pages/Share/Blogs';
 import Navbar from './Pages/Share/Navbar';
 import NotFound from './Pages/Share/NotFound';
@@ -27,6 +29,16 @@ function App() {
         <Route path='/showAllMobilePhone' element={<ShowAllMobilePhone />}></Route>
         <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/myOrder' element={<MyOrder />}></Route>
+        <Route path='/addAReview' element={
+          <RequireAuth>
+            <AddAReview />
+          </RequireAuth>
+        }></Route>
+        <Route path='/myProfile' element={
+          <RequireAuth>
+            <MyProfile />
+          </RequireAuth>
+        }></Route>
         <Route path='/dashboard' element={
           <RequireAuth>
             <Dashboard></Dashboard>

@@ -1,20 +1,30 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 
 
 const Navbar = () => {
 
+    const [user] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+    }
 
     const menuItems = <>
-        <li className='text-xl font-bold'><Link to="/">Home</Link></li>
+        {/* <li className='text-xl font-bold'><Link to="/">Home</Link></li> */}
         <li className='text-xl font-bold'><Link to="/">About</Link></li>
         <li className='text-xl font-bold'><Link to="/blogs">Blogs</Link></li>
         <li className='text-xl font-bold' ><Link to="/myOrder">My Orders</Link></li>
-        <li className='text-xl font-bold' ><Link to="/">Add A Review</Link></li>
-        <li className='text-xl font-bold' ><Link to="/">My Profile</Link></li>
-        <li className='text-xl font-bold' ><Link to="/dashboard">Dashboard</Link></li>
-        <li className='text-xl font-bold' ><Link to="/login">Login</Link></li>
+        <li className='text-xl font-bold' ><Link to="/addAReview">Add A Review</Link></li>
+        <li className='text-xl font-bold' ><Link to="/myProfile">My Profile</Link></li>
+        {
+            user && <li className='text-xl font-bold' ><Link to="/dashboard">Dashboard</Link></li>
+        }
+        <li className="text-xl font-bold">{user ? <button className='text-xl font-bold' onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
 
     </>
 
