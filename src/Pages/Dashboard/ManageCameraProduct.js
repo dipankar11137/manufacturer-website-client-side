@@ -1,30 +1,9 @@
 import { success } from 'daisyui/src/colors';
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
 
-const ManageCameraProduct = ({ product }) => {
+
+const ManageCameraProduct = ({ product, handleRemove, handleQuantity }) => {
     const { _id, name, img, availableQuantity } = product;
-
-    const [cameraProducts, setCameraProducts] = useState();
-
-    const handleQuantity = (id) => { }
-    const handleRemove = (id) => {
-        const proceed = window.confirm('Are you sure ?');
-        if (proceed) {
-            const url = `http://localhost:5000/cameraProducts/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    const reaming = cameraProducts.filter(product => product._id !== id)
-                    setCameraProducts(reaming);
-                    toast('Delete this products');
-                })
-        }
-
-    }
-
 
     return (
         <tr>

@@ -1,22 +1,57 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Footer from '../Share/Footer';
 import ManageCameraProduct from './ManageCameraProduct';
 
 const ManageProduct = () => {
     const [products, setProducts] = useState([]);
-    const [handleQuantity, setHandleQuantity] = useState([]);
-    const [handleRemove, setHandleRemove] = useState([]);
-
+    const [cameraProducts, setCameraProducts] = useState();
 
     useEffect(() => {
         fetch('http://localhost:5000/cameraProducts')
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, []);
+    }, [cameraProducts]);
+
+    const handleRemove = (id) => {
+        const proceed = window.confirm('Are you sure ?');
+        if (proceed) {
+            const url = `http://localhost:5000/cameraProducts/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const reaming = products.filter(product => product._id !== id)
+                    console.log(reaming)
+                    setCameraProducts(reaming);
+                    toast('Delete this products');
+                })
+        }
+
+    }
+
+    const handleQuantity = id => {
+        const proceed = window.confirm('Are you sure ?');
+        if (proceed) {
+            const url = `http://localhost:5000/cameraProducts/${id}`;
+            fetch(url, {
+                method: 'PUT'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const reaming = cameraProducts.filter(product => product._id !== id)
+                    setCameraProducts(reaming);
+                    toast('Update Quantity');
+                })
+        }
+    }
+
+
 
     return (
         <div>
-            <h1 className='text-center text-6xl mt-7 font-bold text-purple-900 uppercase mb-4'>Manage Camera Tools</h1>
+            <h1 className='text-center text-2xl mt-7 font-bold text-purple-900 uppercase mb-4'>Manage Camera Tools</h1>
 
             <div>
                 <div class="overflow-x-auto w-full">
@@ -36,8 +71,8 @@ const ManageProduct = () => {
                                 products.map(product => <ManageCameraProduct
                                     key={product._id}
                                     product={product}
-                                // setHandleRemove={setHandleRemove}
-                                // setHandleQuantity={setHandleQuantity}
+                                    handleRemove={handleRemove}
+                                    handleQuantity={handleQuantity}
                                 ></ManageCameraProduct>)
                             }
                         </tbody>
