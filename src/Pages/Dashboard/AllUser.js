@@ -18,15 +18,14 @@ const AllUser = () => {
 
     return (
         <div>
-            <h1 className='text-4xl text-center font-bold mb-4'>User </h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
 
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Email</th>
+                            <th>Add Admin</th>
+                            <th>Remove Admin</th>
                         </tr>
                     </thead>
                     <tbody>
