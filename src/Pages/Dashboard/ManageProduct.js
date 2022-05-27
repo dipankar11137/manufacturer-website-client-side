@@ -34,9 +34,10 @@ const ManageProduct = () => {
 
                             {
                                 products.map(product => <ManageCameraProduct
-                                    key={product._id} product={product}
-                                    setHandleRemove={setHandleRemove}
-                                    setHandleQuantity={setHandleQuantity}
+                                    key={product._id}
+                                    product={product}
+                                // setHandleRemove={setHandleRemove}
+                                // setHandleQuantity={setHandleQuantity}
                                 ></ManageCameraProduct>)
                             }
                         </tbody>
