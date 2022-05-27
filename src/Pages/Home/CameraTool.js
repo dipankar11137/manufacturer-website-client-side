@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Booking from '../Dashboard/Booking';
 
 const CameraTool = ({ product }) => {
+
     const { _id, name, img, description, minOrderQuantity, availableQuantity, price } = product;
     const navigate = useNavigate();
 
@@ -12,7 +13,7 @@ const CameraTool = ({ product }) => {
 
     }
     return (
-        <div className=''>
+        <div >
             <div class="card w-96 glass p-2 shadow-xl">
                 <div className=' flex justify-center'>
                     <img className='w-72 h-64 rounded-xl' src={img} alt="" />

@@ -13,6 +13,7 @@ const CameraTools = () => {
 
     return (
         <div>
+            <h1>Products {products.length}</h1>
             <hr />
             <h1 className='text-5xl text-center uppercase font-bold mt-5 text-amber-600'>Camera Tools Products </h1>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-10'>

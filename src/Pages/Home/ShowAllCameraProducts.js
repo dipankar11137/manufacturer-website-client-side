@@ -6,10 +6,10 @@ const ShowAllCameraProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('products.json')
+        fetch('http://localhost:5000/cameraProducts')
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
+    }, [products])
     return (
         <div>
             <h1 className='text-center text-6xl mt-7 font-bold text-purple-900 uppercase mb-4'>All Camera Tools</h1>
