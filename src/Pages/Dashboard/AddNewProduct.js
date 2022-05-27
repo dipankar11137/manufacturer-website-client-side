@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddNewProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -15,8 +16,8 @@ const AddNewProduct = () => {
         })
             .then(res => res.json())
             .then(result => {
+                toast.success('Successfully Add This Products');
                 reset();
-                console.log(result);
             })
     }
 
@@ -87,7 +88,7 @@ const AddNewProduct = () => {
                     <input
                         type="number"
                         value={100}
-                        className="input input-bordered bg-white w-full max-w-xs"
+                        className="input input-bordered  bg-white w-full max-w-xs"
                         {...register("minOrderQuantity", {
                             required: {
                                 value: true,
@@ -124,7 +125,7 @@ const AddNewProduct = () => {
                     </label>
                     <input
                         type="number"
-                        placeholder="Your name"
+                        placeholder="Price"
                         className="input input-bordered bg-white w-full max-w-xs"
                         {...register("price", {
                             required: {

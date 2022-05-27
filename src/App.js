@@ -22,6 +22,8 @@ import MyProfile from './Pages/MyProfile/MyProfile';
 import Blogs from './Pages/Share/Blogs';
 import Navbar from './Pages/Share/Navbar';
 import NotFound from './Pages/Share/NotFound';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -29,7 +31,7 @@ function App() {
       <div className='sticky top-0 z-50'>
         <Navbar></Navbar>
       </div>
-
+      <ToastContainer />
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/showAllCameraTools' element={<ShowAllCameraProducts />}></Route>
