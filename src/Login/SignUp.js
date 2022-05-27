@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Loading from '../Pages/Share/Loading';
+import useToken from '../hooks/useToken';
+import { toast } from 'react-toastify';
 
 
 
@@ -21,6 +23,7 @@ const SignUp = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate();
+    const [token] = useToken(user || gUser);
 
     let signInError;
 
@@ -31,13 +34,16 @@ const SignUp = () => {
     if (error || gError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
+    if (token) {
+        // navigate('/myOrder');
+    }
 
     const onSubmit = async data => {
         console.log(data.email, data.password)
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        alert('Updated profile');
-        navigate('/myOrder');
+        toast.success('Updated profile');
+
 
     };
 
