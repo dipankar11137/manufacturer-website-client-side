@@ -51,7 +51,7 @@ function App() {
             <MyProfile />
           </RequireAuth>
         }></Route>
-        <Route path='/booking' element={
+        <Route path='/booking/:bookingId' element={
           <RequireAuth>
             <Booking />
           </RequireAuth>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Booking from '../Dashboard/Booking';
+
 
 const CameraTool = ({ product }) => {
 
@@ -8,8 +8,8 @@ const CameraTool = ({ product }) => {
     const navigate = useNavigate();
 
     const handleBooking = (id) => {
-        // navigate('/booking');
-        navigate(<Booking>{id}</Booking>)
+        navigate(`/booking/${id}`);
+
 
     }
     return (
@@ -25,7 +25,7 @@ const CameraTool = ({ product }) => {
                     <p className='font-bold '>Available Products : {availableQuantity}</p>
                     <p className='font-bold '>Price : {price} /per</p>
                     <div class="card-actions justify-end">
-                        <button onClick={() => handleBooking(_id)} class="btn btn-primary">Book Now</button>
+                        <button onClick={() => handleBooking(_id)} class="btn btn-primary">Booking Now</button>
                     </div>
                 </div>
 
