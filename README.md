@@ -4,8 +4,8 @@
 
 ### Live link : https://manufacture-tools.web.app/
 
-#### Server site git : 
-#### Client site git
+#### Server site git : https://github.com/programming-hero-web-course1/manufacturer-website-server-side-dipankar11137
+#### Client site git : https://github.com/programming-hero-web-course1/manufacturer-website-client-side-dipankar11137
 
 #### Email : abc@def.com
 #### Password : 123456
