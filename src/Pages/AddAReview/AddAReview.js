@@ -13,7 +13,7 @@ const AddAReview = () => {
 
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/reviews`;
+        const url = `https://safe-hamlet-14439.herokuapp.com/reviews`;
         fetch(url, {
             method: 'POST',
             headers: {

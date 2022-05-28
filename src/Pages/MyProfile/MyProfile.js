@@ -10,7 +10,7 @@ const MyProfile = () => {
     const email = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userProfile/${email}`)
+        fetch(`https://safe-hamlet-14439.herokuapp.com/userProfile/${email}`)
             .then(res => res.json())
             .then(data => setMyData(data))
     }, [])

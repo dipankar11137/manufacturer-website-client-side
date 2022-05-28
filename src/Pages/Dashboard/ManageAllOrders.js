@@ -6,7 +6,7 @@ import ManageAllOrder from './ManageAllOrder';
 const ManageAllOrders = () => {
 
 
-    const { data: booking, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/cameraBooking`, {
+    const { data: booking, isLoading, refetch } = useQuery('users', () => fetch(`https://safe-hamlet-14439.herokuapp.com/cameraBooking`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

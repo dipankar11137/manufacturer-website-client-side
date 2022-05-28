@@ -10,7 +10,7 @@ const MyOrder = () => {
 
     const email = user?.email;
 
-    const { data: booking, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/cameraBooking/${email}`, {
+    const { data: booking, isLoading, refetch } = useQuery('users', () => fetch(`https://safe-hamlet-14439.herokuapp.com/cameraBooking/${email}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

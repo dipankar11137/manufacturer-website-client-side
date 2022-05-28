@@ -10,7 +10,7 @@ const UpdateProfile = () => {
 
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/userProfile`;
+        const url = `https://safe-hamlet-14439.herokuapp.com/userProfile`;
         fetch(url, {
             method: 'POST',
             headers: {

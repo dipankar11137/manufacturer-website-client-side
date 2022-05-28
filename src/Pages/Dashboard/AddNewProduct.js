@@ -6,7 +6,7 @@ const AddNewProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/cameraProducts`;
+        const url = `https://safe-hamlet-14439.herokuapp.com/cameraProducts`;
         fetch(url, {
             method: 'POST',
             headers: {

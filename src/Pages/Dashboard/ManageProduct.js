@@ -8,7 +8,7 @@ const ManageProduct = () => {
     const [cameraProducts, setCameraProducts] = useState();
 
     useEffect(() => {
-        fetch('http://localhost:5000/cameraProducts')
+        fetch('https://safe-hamlet-14439.herokuapp.com/cameraProducts')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [cameraProducts]);
@@ -16,7 +16,7 @@ const ManageProduct = () => {
     const handleRemove = (id) => {
         const proceed = window.confirm('Are you sure ?');
         if (proceed) {
-            const url = `http://localhost:5000/cameraProducts/${id}`;
+            const url = `https://safe-hamlet-14439.herokuapp.com/cameraProducts/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -34,7 +34,7 @@ const ManageProduct = () => {
     const handleQuantity = id => {
         const proceed = window.confirm('Are you sure ?');
         if (proceed) {
-            const url = `http://localhost:5000/cameraProducts/${id}`;
+            const url = `https://safe-hamlet-14439.herokuapp.com/cameraProducts/${id}`;
             fetch(url, {
                 method: 'PUT'
             })

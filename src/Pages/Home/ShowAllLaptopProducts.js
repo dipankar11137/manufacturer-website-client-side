@@ -7,7 +7,7 @@ const ShowAllLaptopProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/laptops')
+        fetch('https://safe-hamlet-14439.herokuapp.com/laptops')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

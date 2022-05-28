@@ -16,7 +16,7 @@ const Booking = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/cameraProducts/${bookingId}`;
+        const url = `https://safe-hamlet-14439.herokuapp.com/cameraProducts/${bookingId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBooking(data));
@@ -32,7 +32,7 @@ const Booking = () => {
             return toast.error('More than available product');
         }
         else {
-            fetch('http://localhost:5000/cameraBooking', {
+            fetch('https://safe-hamlet-14439.herokuapp.com/cameraBooking', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

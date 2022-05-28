@@ -6,7 +6,7 @@ const PhoneProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/mobilePhone')
+        fetch('https://safe-hamlet-14439.herokuapp.com/mobilePhone')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
