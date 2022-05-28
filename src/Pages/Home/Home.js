@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../Share/Footer';
 import Banner from './Banner';
 import ElectronicProducts from './ElectronicProducts';
+import RatingRate from './RatingRate';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
                 </div>
             </div>
             <ElectronicProducts />
+            <RatingRate />
             <Footer />
         </div >
     );
