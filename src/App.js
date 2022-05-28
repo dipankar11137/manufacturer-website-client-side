@@ -25,6 +25,7 @@ import NotFound from './Pages/Share/NotFound';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import RequireAdmin from './Login/RequireAdmin';
+import UpdateProfile from './Pages/Dashboard/UpdateProfile';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<Bookings />} />
           <Route path='review' element={<MyReview />} />
+          <Route path='updateProfile' element={<UpdateProfile />} />
           <Route path='history' element={<History />} />
           <Route path='users' element={<RequireAdmin><AllUser /></RequireAdmin>} />
           <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
