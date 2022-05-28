@@ -28,6 +28,7 @@ const Reviews = () => {
                     </>)
                 }
             </div>
+
         </div>
     );
 };
