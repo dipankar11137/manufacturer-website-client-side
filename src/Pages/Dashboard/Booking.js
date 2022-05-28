@@ -23,19 +23,28 @@ const Booking = () => {
 
     }, []);
 
+
     const onSubmit = (data) => {
-        fetch('http://localhost:5000/cameraBooking', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(result => {
-                toast.success('Successfully Add This Products');
-                navigator('/');
+        const newQuantity = data?.quantity;
+        const beforeQuantity = booking?.availableQuantity;
+
+        if (newQuantity > beforeQuantity) {
+            return toast.error('More than available product');
+        }
+        else {
+            fetch('http://localhost:5000/cameraBooking', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
+                .then(res => res.json())
+                .then(result => {
+                    toast.success('Successfully Add This Products');
+                    navigator('/');
+                })
+        }
 
     }
     return (
