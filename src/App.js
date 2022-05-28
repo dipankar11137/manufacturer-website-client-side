@@ -40,7 +40,7 @@ function App() {
         <Route path='/showAllMobilePhone' element={<ShowAllMobilePhone />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/blogs' element={<Blogs />}></Route>
-        <Route path='/myOrder' element={<MyOrder />}></Route>
+        <Route path='/myOrder' element={<RequireAuth><MyOrder /></RequireAuth>}></Route>
         <Route path='/addAReview' element={
           <RequireAuth>
             <AddAReview />

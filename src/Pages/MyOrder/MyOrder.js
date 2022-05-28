@@ -1,11 +1,16 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import auth from '../../firebase.init';
 import Loading from '../Share/Loading';
 import CameraOrderRow from './CameraOrderRow';
 
 const MyOrder = () => {
+    const [user] = useAuthState(auth);
 
-    const { data: booking, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/cameraBooking', {
+    const email = user?.email;
+
+    const { data: booking, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/cameraBooking/${email}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
@@ -10,6 +10,7 @@ const Booking = () => {
     const { bookingId } = useParams();
     const [user] = useAuthState(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const navigator = useNavigate();
 
     const [booking, setBooking] = useState({});
 
@@ -23,7 +24,6 @@ const Booking = () => {
     }, []);
 
     const onSubmit = (data) => {
-        console.log(data);
         fetch('http://localhost:5000/cameraBooking', {
             method: 'POST',
             headers: {
@@ -34,7 +34,7 @@ const Booking = () => {
             .then(res => res.json())
             .then(result => {
                 toast.success('Successfully Add This Products');
-
+                navigator('/');
             })
 
     }
