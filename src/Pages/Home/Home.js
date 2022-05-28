@@ -3,6 +3,7 @@ import Footer from '../Share/Footer';
 import Banner from './Banner';
 import ElectronicProducts from './ElectronicProducts';
 import RatingRate from './RatingRate';
+import Reviews from './Reviews';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             </div>
             <ElectronicProducts />
             <RatingRate />
+            <Reviews />
             <Footer />
         </div >
     );
